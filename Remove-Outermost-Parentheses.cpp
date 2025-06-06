@@ -1,21 +1,26 @@
+// create a count variable
+// if count>0 add the s[i] to the answer, then increment count++
+// else : first decrement count--; then check if count > 0 , if yes then add the s[i] to the answer. This way it will ignore the outer clsoing bracket
 
 class Solution {
 public:
     string removeOuterParentheses(string s) {
         int n = s.length();
-        int balance=0;
-        int size=0;
-        string result;
-        for(int i=0; i<n; i++){
-            if(s[i]=='(' ) {
-                if(balance>0) result+=s[i];
-                balance++;
-                }
-            else {
-                balance--;
-                if(balance>0) result+=s[i];
+        string ans = "";
+        int count=0;
+        for(int i = 0; i<n ; i++){
+            if (s[i]=='(') { 
+                if(count>0) ans+=s[i];
+                count++;
             }
+            else {
+                count--;
+                if(count>0) ans+=s[i];
+            }
+            }
+            
+        return ans;
         }
-        return result;
-    }
+        
+    
 };
