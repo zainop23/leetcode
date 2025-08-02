@@ -1,12 +1,10 @@
 /**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
+Intuition: if there are two people
+P1: travellling at speed x
+P2: travellling at speed x/2
+
+Then :
+When P1  covers distance d, P2 covers distance d/2
  */
 class Solution {
 public:
