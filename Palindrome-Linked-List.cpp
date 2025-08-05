@@ -8,6 +8,7 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+// https://takeuforward.org/data-structure/check-if-given-linked-list-is-plaindrome/
 class Solution {
 public:
 
