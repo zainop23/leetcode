@@ -21,6 +21,7 @@ public:
         for(int i=0; i<n; i++){
             fast=fast->next;
         }
+        //important case : when we have to delete head.
         if(fast==NULL){
             head=head->next;
             return head;
