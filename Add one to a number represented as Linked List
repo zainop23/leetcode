@@ -1,0 +1,49 @@
+/**
+ * Definition of linked list:
+ *
+ * class Node {
+ * public:
+ *      int data;
+ *      Node *next;
+ *      Node() {
+ *          this->data = 0;
+ *          this->next = NULL;
+ *      }
+ *      Node(int data) {
+ *          this->data = data;
+ *          this->next = NULL;
+ *      }
+ *      Node (int data, Node *next) {
+ *          this->data = data;
+ *          this->next = next;
+ *      }
+ * };
+ *
+ *************************************************************************/
+ // iterative approach : reverse the LL, add 1 to the head.
+ // if(temp->data==10) carry=1, temp=temp->next else carry =0 and break;
+ // if carry==1 then add a new node Node(1)
+
+ // recursive approach : call a helper function and initiaalize it to carry. 
+ // Helper func : if(temp==null) return 1; same as iterative.
+int helper(Node* &temp){
+    if(temp==NULL) return 1;
+    int carry = helper(temp->next);
+    temp->data += carry;
+    if(temp->data < 10){
+        carry=0;
+        return 0;
+    }
+    temp->data=0;
+    return 1;
+}
+Node *addOne(Node *head)
+{
+    int carry = helper(head);
+    if(carry==1){
+        Node* newHead = new Node(1);
+        newHead->next = head;
+        return newHead;
+    }
+    return head;
+}
