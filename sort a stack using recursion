@@ -1,0 +1,29 @@
+//tc O(n^2) 
+// sortStack runs for each of the n elements.
+// Each call pops one element and eventually reinserts it.
+// insert in the worst case may traverse the entire current stack to find the right place for el.
+// Thats O(k) work when the stack size is k.
+// Total work =
+
+// O(1) + O(2) + O(3) + ... + O(n)
+// = O(n^2)
+
+#include <bits/stdc++.h> 
+void insert(stack<int> &stack, int el){
+	if(stack.empty() || stack.top()<el){
+		stack.push(el);
+		return;
+	}
+	int e = stack.top();
+	stack.pop();
+	insert(stack,el);
+	stack.push(e);
+}
+void sortStack(stack<int> &stack)
+{
+	if(stack.empty()) return;
+	int el = stack.top();
+	stack.pop();
+	sortStack(stack);
+	insert(stack,el);
+}
